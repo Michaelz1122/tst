@@ -12,8 +12,8 @@ export interface AdminUser {
 // Admin credentials (in production, use database with hashed passwords)
 const ADMIN_CREDENTIALS = {
   username: process.env.ADMIN_USERNAME || 'admin@example.com',
-  // Hash the password for comparison
-  passwordHash: process.env.ADMIN_PASSWORD || 'admin123'
+  // Plain text password for simple comparison (in production, use bcrypt)
+  password: process.env.ADMIN_PASSWORD || 'admin123'
 }
 
 export async function hashPassword(password: string): Promise<string> {
